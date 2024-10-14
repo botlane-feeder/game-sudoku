@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: configs/svelte/Dockerfile
+
+  nginx:
+    build:
+      context: .
+      dockerfile: configs/nginx/Dockerfile
+    ports:
+      - '9081:80'
+    depends_on:
+      - frontend
